@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br><br><br>
+<h3> brand : {{product.brand}} </h3>
+<h1> {{ product.name }}</h3>
+
+
+<img src="{{product.image_url1}}" ><br>
+
+<h3>body : {{ product.description|safe }}</h3>
+<br>
+
+          {% for review in product.review_set.all %}
+             <a href="/product/reviews/{{review.id}}"> 
+             	<li> {{review.title}}</li>
+             </a>
+          {% endfor %}
+
+<button onclick="goBack()">back to list</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% endblock %}

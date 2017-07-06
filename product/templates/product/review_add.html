@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+<br><br><br><br>
+<br><br>
+    {% if form.errors %}
+        <p style="color: red;">
+            Please correct the error{{ form.errors|pluralize }} below.
+        </p>
+    {% endif %}
+<br><br><br><br>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            {{body|safe}}
+        </table>
+        <input type="submit" value="Submit">
+    </form>
+
+
+{% endblock %}

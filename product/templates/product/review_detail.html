@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><br><br><br>
+
+<h3> no : {{review.id}}</h3>
+<h1>title : {{ review.title }}</h1>
+<h1>body : {{ review.body|safe }}</h1>
+<br>
+<h1>date : {{ review.pub_date }}</h1>
+
+ups : {{ reviews.ups}}<br>
+downs : {{reviews.doewns}}<br>
+views : {{reveiws.views}}<br>
+
+   {% for product in review.product.all %}
+                {{product.brand}} 
+                {{product.name}} 
+                <img src = "{{product.image_url1}}"> </img>
+   {% endfor %}
+
+
+
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+{% endblock %}

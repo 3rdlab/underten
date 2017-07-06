@@ -2,3 +2,5 @@
 /uploads
 /temp
 /django-summernote
+*.pyc
+
